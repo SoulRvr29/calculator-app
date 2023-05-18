@@ -1,0 +1,280 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap");
+
+.theme1 {
+  /* Backgrounds */
+  --main-bkg: hsl(222, 26%, 31%);
+  --toggle-kaypad-bkg: hsl(223, 31%, 20%);
+  --screen-bkg: hsl(224, 36%, 15%);
+
+  /* Keys */
+  --del-reset-bkg-hover: hsl(225, 41%, 68%);
+  --del-reset-bkg: hsl(225, 21%, 49%);
+  --del-reset-border: hsl(224, 28%, 35%);
+
+  --sum-toggle-hover: hsl(6, 91%, 63%);
+  --sum-toggle: hsl(6, 63%, 50%);
+  --sum-toggle-border: hsl(6, 70%, 34%);
+
+  --key-hover: hsl(0, 0%, 100%);
+  --key: hsl(30, 25%, 89%);
+  --key-shadow: hsl(28, 16%, 65%);
+
+  /* Text */
+  --txt-buttons: hsl(221, 14%, 31%);
+  --txt-buttons-invert: hsl(0, 0%, 100%);
+  --txt-buttons-result: hsl(0, 0%, 100%);
+}
+.theme2 {
+  /* Backgrounds */
+  --main-bkg: hsl(0, 0%, 90%);
+  --toggle-kaypad-bkg: hsl(0, 5%, 81%);
+  --screen-bkg: hsl(0, 0%, 93%);
+
+  /* Keys */
+  --del-reset-bkg-hover: hsl(185, 50%, 62%);
+  --del-reset-bkg: hsl(185, 42%, 37%);
+  --del-reset-border: hsl(185, 58%, 25%);
+
+  --sum-toggle-hover: hsl(25, 86%, 52%);
+  --sum-toggle: hsl(25, 98%, 40%);
+  --sum-toggle-border: hsl(25, 99%, 27%);
+
+  --key-hover: hsl(0, 0%, 100%);
+  --key: hsl(45, 7%, 89%);
+  --key-shadow: hsl(35, 11%, 61%);
+
+  /* Text */
+  --txt-buttons: hsl(60, 10%, 19%);
+  --txt-buttons-invert: hsl(0, 0%, 100%);
+  --txt-buttons-result: hsl(198, 20%, 13%);
+  --txt-buttons-sum: hsl(0, 0%, 100%);
+}
+.theme3 {
+  /* Backgrounds */
+  --main-bkg: hsl(268, 75%, 9%);
+  --toggle-kaypad-bkg: hsl(268, 71%, 12%);
+  --screen-bkg: hsl(268, 71%, 12%);
+
+  /* Keys */
+  --del-reset-bkg-hover: hsl(281, 69%, 45%);
+  --del-reset-bkg: hsl(281, 89%, 26%);
+  --del-reset-border: hsl(285, 91%, 52%);
+
+  --sum-toggle-hover: hsl(176, 100%, 72%);
+  --sum-toggle: hsl(176, 100%, 44%);
+  --sum-toggle-border: hsl(177, 92%, 70%);
+
+  --key-hover: hsl(268, 37%, 40%);
+  --key: hsl(268, 47%, 21%);
+  --key-shadow: hsl(290, 70%, 36%);
+
+  /* Text */
+  --txt-buttons: hsl(52, 100%, 62%);
+  --txt-buttons-invert: hsl(0, 0%, 100%);
+  --txt-buttons-result: hsl(52, 100%, 62%);
+  --txt-buttons-sum: hsl(198, 20%, 13%);
+}
+
+:root {
+  /* Border radius */
+  --brd-radius: 0.7rem;
+}
+
+/* Box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Reset margins */
+body,
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+/* set up the body */
+body {
+  font-family: "League Spartan", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--txt-buttons-result);
+  background-color: var(--main-bkg);
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  user-select: none;
+}
+
+/***   MAIN   ***/
+main {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 33.75rem;
+}
+/***   HEADER   ***/
+header {
+  display: flex;
+  justify-content: space-between;
+}
+h1 {
+  font-size: 2rem;
+  margin-left: 0.5rem;
+}
+h2 {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+}
+.themeContainer {
+  display: flex;
+  gap: 1.5rem;
+}
+.switchContainer h2 {
+  font-size: 0.9rem;
+  letter-spacing: 1rem;
+  margin-left: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+.switchContainer {
+  display: grid;
+  /* gap: 0.2rem; */
+}
+.switch {
+  appearance: none;
+  background-color: var(--toggle-kaypad-bkg);
+  border-radius: 10rem;
+  width: 4.4rem;
+  padding: 0.25rem;
+}
+.switch::-webkit-slider-thumb {
+  appearance: none;
+  border-radius: var(--brd-radius);
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--sum-toggle);
+}
+
+.switch::-webkit-slider-thumb:hover {
+  background-color: var(--sum-toggle-hover);
+  cursor: pointer;
+}
+/***   RESULT   ***/
+
+.resultContainer {
+  display: flex;
+  justify-content: flex-end;
+  background-color: var(--screen-bkg);
+  border-radius: var(--brd-radius);
+  padding: 2.5rem 2rem;
+  overflow-x: hidden;
+}
+.result {
+  font-size: 3.5rem;
+  height: 2.5rem;
+}
+/***   BOARD   ***/
+.controlBoard {
+  display: grid;
+  width: min(90vw, 33.75rem);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 4rem);
+  background-color: var(--toggle-kaypad-bkg);
+  border-radius: var(--brd-radius);
+  padding: 1.9rem;
+  gap: 1.4rem;
+}
+.button {
+  padding-top: 0.5rem;
+  font-size: 2.5rem;
+  display: grid;
+  place-content: center;
+  background-color: var(--key);
+  border-radius: var(--brd-radius);
+  color: var(--txt-buttons);
+  border-bottom: 0.25rem solid var(--key-shadow);
+  transition-property: border-bottom-width, margin-top;
+  transition-duration: 0.1s;
+}
+/* .button:nth-child(6) {
+  border-bottom-width: 0;
+  border-bottom-width: 0.25rem;
+  /* margin-top: 0.25rem; */
+
+.button:hover {
+  cursor: pointer;
+  background-color: var(--txt-buttons-invert);
+  background-color: var(--key-hover);
+}
+
+.button:nth-child(4),
+.button:nth-last-child(2),
+.button:last-child {
+  font-size: 1.7rem;
+  color: var(--txt-buttons-invert);
+  background-color: var(--del-reset-bkg);
+  border-bottom: 0.25rem solid var(--del-reset-border);
+}
+.button:last-child,
+.button:nth-last-child(2) {
+  grid-column: span 2;
+}
+.button:last-child {
+  background-color: var(--sum-toggle);
+  border-bottom: 0.25rem solid var(--sum-toggle-border);
+  color: var(--txt-buttons-sum);
+}
+.button:nth-child(4):hover,
+.button:nth-last-child(2):hover {
+  background-color: var(--del-reset-bkg-hover);
+}
+.button:last-child:hover {
+  background-color: var(--sum-toggle-hover);
+}
+
+/*** FOOTER ***/
+footer {
+  max-width: 90vw;
+  justify-self: center;
+  font-size: min(4vw, 0.9rem);
+  margin-top: 1rem;
+  text-align: center;
+  line-height: 1.5;
+}
+footer a {
+  color: var(--del-reset-bkg-hover);
+}
+footer a:hover {
+  color: var(--sum-toggle);
+}
+
+/*** MEDIA QUERY ***/
+@media screen and (max-width: 480px) {
+  h2,
+  .switchContainer h2 {
+    font-size: 0.7rem;
+  }
+  .resultContainer {
+    padding: 1.5rem 1.4rem;
+  }
+  .result {
+    font-size: 2.5rem;
+  }
+  .controlBoard {
+    gap: 0.9rem;
+    padding: 1.5rem;
+  }
+  .button {
+    border-radius: 0.3rem;
+    font-size: 2rem;
+  }
+  .button:nth-child(4),
+  .button:nth-last-child(2),
+  .button:last-child {
+    font-size: 1.2rem;
+  }
+}

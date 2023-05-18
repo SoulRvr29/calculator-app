@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" class="theme1">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Calculator app</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <h1>calc</h1>
+        <div class="themeContainer">
+          <h2>theme</h2>
+          <div class="switchContainer">
+            <h2>123</h2>
+            <input
+              oninput="setTheme(this.value)"
+              class="switch"
+              type="range"
+              min="1"
+              max="3"
+              value="1"
+            />
+          </div>
+        </div>
+      </header>
+      <section class="resultContainer">
+        <div class="result">0</div>
+      </section>
+      <section class="controlBoard">
+        <div class="button">7</div>
+        <div class="button">8</div>
+        <div class="button">9</div>
+        <div class="button">DEL</div>
+        <div class="button">4</div>
+        <div class="button">5</div>
+        <div class="button">6</div>
+        <div class="button">+</div>
+        <div class="button">1</div>
+        <div class="button">2</div>
+        <div class="button">3</div>
+        <div class="button">-</div>
+        <div class="button">.</div>
+        <div class="button">0</div>
+        <div class="button">/</div>
+        <div class="button">x</div>
+        <div class="button">RESET</div>
+        <div class="button">=</div>
+      </section>
+    </main>
+    <footer>
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+        >Frontend Mentor</a
+      >. Coded by
+      <a href="https://www.frontendmentor.io/profile/SoulRvr29">SoulRvr</a>.
+    </footer>
+    <script src="index.js"></script>
+  </body>
+</html>
