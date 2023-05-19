@@ -86,7 +86,6 @@ function calculate(button) {
       result.innerHTML += button;
       result.innerHTML = result.innerHTML.slice(0, 12); // result max length
   }
-  console.log(number);
 }
 
 function dotCheck() {
