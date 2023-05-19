@@ -35,32 +35,76 @@ document.querySelectorAll(".button").forEach((button) => {
   });
 });
 
+let number = ""; // container for calculations
+
 function calculate(button) {
-  console.log(result.innerHTML);
   switch (button) {
     case "=":
-      result.innerHTML = eval(result.innerHTML);
+      number = eval(number);
+      number = "" + number; // convert to string
+      result.innerHTML = number;
+      result.innerHTML = result.innerHTML.slice(0, 12); // result max length
       break;
+
     case "RESET":
+      number = "";
       result.innerHTML = "0";
       break;
+
     case "DEL":
-      result.innerHTML = result.innerHTML.slice(0, result.innerHTML.length - 1);
+      let max = number.length - 1;
+      number = number.slice(0, max);
+      result.innerHTML = result.innerHTML.slice(0, max);
       if (result.innerHTML == "") result.innerHTML = "0";
       break;
+
     case "x":
-      result.innerHTML += "*";
+    case "/":
+    case "+":
+    case "-":
+      let operator = operatorCheck(); //replace operator if last
+      if (operator == true) {
+        number = number.slice(0, number.length - 1);
+      }
+      if (button == "x") number += "*";
+      else number += button;
       break;
+
     case ".":
-      result.innerHTML += button;
+      let dotLock = dotCheck(); //prevent from more than one dot
+      if (dotLock == false) {
+        number += button;
+        result.innerHTML += button;
+      }
       break;
-    default:
-      if (result.innerHTML == "0") result.innerHTML = "";
-      // if (result.innerHTML.length < 9)
+
+    default: //numbers 0 - 9
+      let afterOperator = operatorCheck(); //clear screen for second number
+      if (afterOperator == true || result.innerHTML == "0")
+        result.innerHTML = "";
+      number += button;
       result.innerHTML += button;
+      result.innerHTML = result.innerHTML.slice(0, 12); // result max length
   }
+  console.log(number);
 }
 
-function resultWrite(calcValue) {
-  result.innerHTML = calcValue;
+function dotCheck() {
+  let dotCounter = 0;
+  for (let i = 0; i < result.innerHTML.length; i++) {
+    if (result.innerHTML.charAt(i) == ".") dotCounter++;
+  }
+  if (dotCounter == 1) return true;
+  else return false;
+}
+
+function operatorCheck() {
+  if (
+    number.charAt(number.length - 1) == "*" ||
+    number.charAt(number.length - 1) == "/" ||
+    number.charAt(number.length - 1) == "+" ||
+    number.charAt(number.length - 1) == "-"
+  )
+    return true;
+  else return false;
 }
