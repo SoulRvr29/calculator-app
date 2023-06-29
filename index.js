@@ -1,6 +1,7 @@
 let themeActual = localStorage.getItem("theme");
 let switchPosition = document.querySelector(".switch");
 let result = document.querySelector(".result");
+let operatorSign = document.querySelector(".operation");
 
 setTheme(themeActual);
 
@@ -40,6 +41,7 @@ let number = ""; // container for calculations
 function calculate(button) {
   switch (button) {
     case "=":
+      operatorSign.innerHTML = '';
       number = eval(number);
       number = "" + number; // convert to string
       result.innerHTML = number;
@@ -63,6 +65,30 @@ function calculate(button) {
     case "+":
     case "-":
       let operator = operatorCheck(); //replace operator if last
+      if(button == '+') {
+        operatorSign.innerHTML = button;
+        operatorSign.style.right = '40px';
+        operatorSign.style.top = '10px';
+        operatorSign.style.fontSize = '2rem';
+      }
+      if(button == '-') {
+        operatorSign.innerHTML = button;
+        operatorSign.style.right = '42px';
+        operatorSign.style.top = '7px';
+        operatorSign.style.fontSize = '2rem';
+      }
+      if(button == '/') {
+        operatorSign.innerHTML = button;
+        operatorSign.style.right = '43px';
+        operatorSign.style.top = '12px';
+        operatorSign.style.fontSize = '1.4rem';
+      }
+      if(button == 'x') {
+        operatorSign.innerHTML = button;
+        operatorSign.style.right = '40px';
+        operatorSign.style.top = '8px';
+        operatorSign.style.fontSize = '1.8rem';
+      }
       if (operator == true) {
         number = number.slice(0, number.length - 1);
       }
